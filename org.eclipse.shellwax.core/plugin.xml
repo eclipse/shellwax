@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="sh"
+            id="org.eclipse.shellwax.sh"
+            name="Shell Script"
+            priority="normal">
+      </content-type>
+</extension>
+<extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.shellwax.sh"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+    <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="grammar/shell.plist"
+            scopeName="source.shell">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.shellwax.sh"
+            scopeName="source.shell">
+      </scopeNameContentTypeBinding>
+</extension>
+    <extension
+         point="org.eclipse.ui.genericeditor.presentationReconcilers">
+      <presentationReconciler
+            class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
+            contentType="org.eclipse.shellwax.sh">
+      </presentationReconciler>
+</extension>
+<extension
+         point="org.eclipse.lsp4e.languageServer">
+      <server
+            class="org.eclipse.shellwax.internal.BashLanguageServer"
+            id="org.eclipse.shellwax.ls"
+            label="Bash Language Server">
+      </server>
+      <contentTypeMapping
+            contentType="org.eclipse.shellwax.sh"
+            id="org.eclipse.shellwax.ls">
+      </contentTypeMapping>
+</extension>
+
+
+</plugin>

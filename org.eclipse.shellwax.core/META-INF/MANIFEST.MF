@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ShellWax 
+Bundle-SymbolicName: org.eclipse.shellwax.core;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Automatic-Module-Name: org.eclipse.shellwax.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui.genericeditor,
+ org.eclipse.tm4e.ui,
+ org.eclipse.lsp4e,
+ org.eclipse.core.runtime
