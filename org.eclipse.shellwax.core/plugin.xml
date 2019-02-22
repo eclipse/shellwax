@@ -51,4 +51,58 @@
 </extension>
 
 
+<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+        name="Shell Script launch"
+        delegate="org.eclipse.shellwax.internal.run.ShLaunchConfig"
+        modes="run"
+        id="org.eclipse.shellwax.shlaunchonfigtype">
+    </launchConfigurationType>
+</extension>
+
+<extension
+    point="org.eclipse.debug.ui.launchShortcuts">
+    <shortcut
+        class="org.eclipse.shellwax.internal.run.ShLaunchShortcut"
+        id="org.eclipse.shellwax.shshortcut"
+        label="Shell Script"
+        icon="icons/script.gif"
+        modes="run">
+        <contextualLaunch>
+            <enablement>
+                <with
+                    variable="selection">
+                    <count
+                        value="+">
+                    </count>
+                     <iterate operator="and">
+            <adapt type="org.eclipse.core.resources.IFile">
+              <test property="org.eclipse.core.resources.extension"
+                    value="sh">
+              </test>
+            </adapt>
+          </iterate>
+                </with>
+            </enablement>
+        </contextualLaunch>
+    </shortcut>
+</extension>
+
+
+<extension
+    point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+    <launchConfigurationTabGroup
+        class="org.eclipse.shellwax.internal.run.ShTabGroup"
+        id="org.eclipse.shellwax.launchConfigurationTabGroup"
+        type="org.eclipse.shellwax.shlaunchonfigtype">
+    </launchConfigurationTabGroup>
+</extension>
+ <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="org.eclipse.shellwax.shlaunchonfigtype"
+            icon="icons/script.gif"
+            id="org.eclipse.shellwax.launchImage">
+      </launchConfigurationTypeImage>
+</extension>
 </plugin>
