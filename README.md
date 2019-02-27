@@ -27,4 +27,4 @@ The Bash Language Server supplies ShellWax with the majority of the edition abil
 
 Corrosion is an open-source project licensed under [The Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-2.0/)
 
-[More Licensing Information](NOTICE.md)
+[More Licensing Information](LICENSE)
