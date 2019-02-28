@@ -12,13 +12,16 @@
  *******************************************************************************/
 package org.eclipse.shellwax.internal.run;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -38,14 +41,22 @@ public class ShLaunchConfig extends LaunchConfigurationDelegate {
 		List<String> command = new ArrayList<>();
 		String shellPath = wc.getAttribute(PROGRAM, "");
 		String[] shellParams = wc.getAttribute(ARGUMENTS, "").split(" ");
+		String workDir = wc.getAttribute(DebugPlugin.ATTR_WORKING_DIRECTORY, "");
+		if (workDir.isEmpty()) {
+			IPath path = new Path(shellPath);
+			path = path.removeLastSegments(1);
+			workDir = path.toPortableString();
+		}
 		command.add("sh");
 		command.add(shellPath);
 		command.addAll(Arrays.asList(shellParams));
 		try {
 			ProcessBuilder pb = new ProcessBuilder(command.toArray(new String[command.size()]));
+			pb.directory(new File(workDir));
 			final Process p = pb.start();
 			DebugPlugin.newProcess(launch, p, shellPath);
 		} catch (IOException ex) {
+			ex.printStackTrace();
 		}
 	}
 
