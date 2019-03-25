@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>org.eclipse.shellwax</artifactId>
-    <groupId>org.eclipse.shellwax</groupId>
-    <version>0.0.2-SNAPSHOT</version>
-  </parent>
-  <artifactId>org.eclipse.shellwax.feature</artifactId>
-  <packaging>eclipse-feature</packaging>
-  <name>org.eclipse.shellwax :: feature</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>org.eclipse.shellwax</artifactId>
+		<groupId>org.eclipse.shellwax</groupId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.eclipse.shellwax.feature</artifactId>
+	<packaging>eclipse-feature</packaging>
+	<name>org.eclipse.shellwax :: feature</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<excludes>
+						<!-- provide plug-ins not containing any source code -->
+						<plugin id="org.eclipse.shellwax.ls.linux.x86_64" />
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

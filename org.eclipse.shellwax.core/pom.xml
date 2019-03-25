@@ -10,28 +10,4 @@
   <packaging>eclipse-plugin</packaging>
   <name>org.eclipse.shellwax :: core</name>
   <description>org.eclipse.shellwax Core Plugin</description>
-  <build><plugins>
-  <plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
-				<executions>
-					<execution>
-						<id>provision servers and deps</id>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<phase>generate-resources</phase>
-						<configuration>
-							<executable>npm</executable>
-							<arguments>
-								<arg>install</arg>
-								<arg>bash-language-server</arg>
-							</arguments>
-							<workingDirectory>languageserver/</workingDirectory>
-						</configuration>
-					</execution>
-				</executions>
-</plugin>
-</plugins></build>
 </project>

@@ -145,5 +145,6 @@
 		<module>org.eclipse.shellwax.target</module>
 		<module>org.eclipse.shellwax.feature</module>
 		<module>org.eclipse.shellwax.site</module>
+		<module>org.eclipse.shellwax.ls.linux.x86_64</module>
 	</modules>
 </project>
