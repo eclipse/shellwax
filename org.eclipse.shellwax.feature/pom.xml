@@ -30,6 +30,7 @@
 					<excludes>
 						<!-- provide plug-ins not containing any source code -->
 						<plugin id="org.eclipse.shellwax.ls.linux.x86_64" />
+						<plugin id="org.eclipse.shellwax.ls.win32.x86_64" />
 					</excludes>
 				</configuration>
 			</plugin>

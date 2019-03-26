@@ -1,37 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <artifactId>org.eclipse.shellwax</artifactId>
-    <groupId>org.eclipse.shellwax</groupId>
-    <version>0.0.2-SNAPSHOT</version>
-  </parent>
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>org.eclipse.shellwax.ls.linux.x86_64</artifactId>
-  <packaging>eclipse-plugin</packaging>
-  <name>org.eclipse.shellwax :: ls.linux.x86_64</name>
-  <description>org.eclipse.shellwax Core Plugin</description>
-  <build><plugins>
-  <plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
-				<executions>
-					<execution>
-						<id>provision servers and deps</id>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<phase>generate-resources</phase>
-						<configuration>
-							<executable>npm.exe</executable>
-							<arguments>
-								<arg>install</arg>
-								<arg>bash-language-server</arg>
-							</arguments>
-							<workingDirectory>languageserver/</workingDirectory>
-						</configuration>
-					</execution>
-				</executions>
-</plugin>
-</plugins></build>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>org.eclipse.shellwax</artifactId>
+		<groupId>org.eclipse.shellwax</groupId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>org.eclipse.shellwax.ls.win32.x86_64</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<name>org.eclipse.shellwax :: ls.win32.x86_64</name>
+	<description>Bash Language Server Windows x86_64</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<configuration>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>genls</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-source-feature-plugin</artifactId>
+						<version>${tycho.extras.version}</version>
+						<executions>
+							<execution>
+								<id>source-feature</id>
+								<phase>package</phase>
+								<goals>
+									<goal>source-feature</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
