@@ -51,6 +51,8 @@ public class ShLaunchConfig extends LaunchConfigurationDelegate {
 		String executable = "sh";
 		if (Platform.getOS().equals(Platform.OS_WIN32)) {
 			executable = "bash.exe";
+			String drive = Character.toString(shellPath.charAt(0));
+			shellPath = "/mnt/"+drive.toLowerCase()+"/"+shellPath.substring(2);
 		}
 		command.add(executable);
 		command.add(shellPath);

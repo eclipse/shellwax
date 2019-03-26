@@ -35,7 +35,7 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 		List<String> commands = new ArrayList<>();
 		String nodePath = getNodeJsLocation();
 		if (nodePath != null) {
-			commands.add("/usr/bin/node");
+			commands.add(nodePath);
 			try {
 				URL url = FileLocator.toFileURL(
 						getClass().getResource("/languageserver/node_modules/bash-language-server/bin/main.js"));
