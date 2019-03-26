@@ -22,6 +22,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -47,7 +48,11 @@ public class ShLaunchConfig extends LaunchConfigurationDelegate {
 			path = path.removeLastSegments(1);
 			workDir = path.toPortableString();
 		}
-		command.add("sh");
+		String executable = "sh";
+		if (Platform.getOS().equals(Platform.OS_WIN32)) {
+			executable = "bash.exe";
+		}
+		command.add(executable);
 		command.add(shellPath);
 		command.addAll(Arrays.asList(shellParams));
 		try {
