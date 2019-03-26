@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Win32 X86_64
+Bundle-SymbolicName: org.eclipse.shellwax.ls.win32.x86_64
+Bundle-Version: 0.0.2.qualifier
+Fragment-Host: org.eclipse.shellwax.core
+Automatic-Module-Name: org.eclipse.shellwax.ls.win32.x86_64
+Eclipse-BundleShape: dir
+Eclipse-PlatformFilter: (& (osgi.os=win32) (osgi.arch=x86_64))
