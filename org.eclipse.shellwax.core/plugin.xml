@@ -105,4 +105,13 @@
             id="org.eclipse.shellwax.launchImage">
       </launchConfigurationTypeImage>
 </extension>
+<extension
+         id="ShellDocumentSetupParticipant"
+         name="Shell Document Setup Participant"
+         point="org.eclipse.core.filebuffers.documentSetup">
+      <participant
+            extensions="sh"
+            class="org.eclipse.shellwax.internal.ShDocumentSetupParticipant">
+      </participant>
+   </extension>
 </plugin>
