@@ -48,8 +48,15 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 			if (!isInstalled()) {
 				installLS();
 			}
-			commands.add(nodePath);
-			commands.add(System.getProperty("user.home") + LOCAL_PATH + LS_MAIN);
+			String lsPath = System.getProperty("user.home") + LOCAL_PATH + LS_MAIN;
+			if (Platform.getOS().equals(Platform.OS_WIN32)) {
+				commands.add("cmd");
+				commands.add("/c");
+			} else {
+				commands.add(nodePath);
+				
+			}
+			commands.add(lsPath);
 			commands.add("start");
 			setCommands(commands);
 			setWorkingDirectory(System.getProperty("user.dir"));
@@ -64,6 +71,9 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 			if (!installLocation.exists())
 				installLocation.mkdirs();
 			String npmPath = getExecLocation("npm");
+			if (Platform.getOS().equals(Platform.OS_WIN32)) {
+				npmPath = npmPath+".cmd";
+			}
 			if (npmPath != null) {
 				List<String> commands = new ArrayList<>();
 				commands.add(npmPath);
