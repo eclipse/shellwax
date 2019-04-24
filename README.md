@@ -9,6 +9,13 @@ ShellWax is a shell script development plugin for the Eclipse IDE, providing a r
 
 From a working Eclipse IDE, install from p2 repository [https://akurtakov.fedorapeople.org/shellwax/](https://akurtakov.fedorapeople.org/shellwax/).
 
+### Prerequisites
+In order to use ShellWax on the user machine it's mandatory to have the following installed and available on PATH env variable:
+- Node.js (node)
+- NPM (npm)
+- Bash (bash). Note: Windows users should have bash installed via [Windows Sybsystem For Linux and their distro of choice](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+
 ## Features
 
 ShellWax brings together multiple different sources of features to make an enjoyable developing environment. Here are just a few of the most common features. Download today to discover all Corrosion has to offer.
