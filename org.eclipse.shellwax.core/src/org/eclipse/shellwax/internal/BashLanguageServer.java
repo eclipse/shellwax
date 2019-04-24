@@ -13,47 +13,81 @@
 package org.eclipse.shellwax.internal;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.ICoreRunnable;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.lsp4e.server.ProcessStreamConnectionProvider;
 import org.eclipse.swt.widgets.Display;
 
 public class BashLanguageServer extends ProcessStreamConnectionProvider {
-
+	private static final String LOCAL_PATH = "/.local/share/shellwax";
+	private static final String LS_MAIN = "/node_modules/.bin/bash-language-server";
 	private static boolean alreadyWarned;
+
+	private static boolean isInstalled() {
+		File installLocation = new File(System.getProperty("user.home") + LOCAL_PATH + LS_MAIN);
+		if (installLocation.exists() && installLocation.canExecute()) {
+			return true;
+		}
+		return false;
+	}
 
 	public BashLanguageServer() {
 		List<String> commands = new ArrayList<>();
-		String nodePath = getNodeJsLocation();
+		String nodePath = getExecLocation("node");
 		if (nodePath != null) {
-			commands.add(nodePath);
-			try {
-				URL url = FileLocator.toFileURL(
-						getClass().getResource("/languageserver/node_modules/bash-language-server/bin/main.js"));
-				commands.add(new java.io.File(url.getPath()).getAbsolutePath());
-				commands.add("start");
-				setCommands(commands);
-				setWorkingDirectory(System.getProperty("user.dir"));
-			} catch (IOException e) {
-				e.printStackTrace();
+			if (!isInstalled()) {
+				installLS();
 			}
+			commands.add(nodePath);
+			commands.add(System.getProperty("user.home") + LOCAL_PATH + LS_MAIN);
+			commands.add("start");
+			setCommands(commands);
+			setWorkingDirectory(System.getProperty("user.dir"));
 		}
 	}
 
-	private static String getNodeJsLocation() {
-		String res = "/path/to/node";
-		String[] command = new String[] { "/bin/bash", "-c", "which node" };
+	private synchronized void installLS() {
+		Job installJob = Job.create("Bash Language server installation", (ICoreRunnable) monitor -> {
+			File installLocation = new File(System.getProperty("user.home") + LOCAL_PATH);
+			if (!installLocation.isDirectory())
+				installLocation.delete();
+			if (!installLocation.exists())
+				installLocation.mkdirs();
+			String npmPath = getExecLocation("npm");
+			if (npmPath != null) {
+				List<String> commands = new ArrayList<>();
+				commands.add(npmPath);
+				commands.add("install");
+				commands.add("bash-language-server");
+				ProcessBuilder pb = new ProcessBuilder(commands);
+				pb.directory(installLocation);
+				try {
+					Process ps = pb.start();
+					ps.waitFor();
+				} catch (IOException | InterruptedException e) {
+					e.printStackTrace();
+
+				}
+			}
+		});
+		installJob.schedule();
+	}
+
+	private static String getExecLocation(String exec) {
+		String res = "/path/to/" + exec;
+		String[] command = new String[] { "/bin/bash", "-c", "which " + exec };
 		if (Platform.getOS().equals(Platform.OS_WIN32)) {
-			command = new String[] { "cmd", "/c", "where node" };
+			command = new String[] { "cmd", "/c", "where " + exec };
 		}
 		BufferedReader reader = null;
 		try {
@@ -66,21 +100,21 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 
 		// Try default install path as last resort
 		if (res == null && Platform.getOS().equals(Platform.OS_MACOSX)) {
-			res = "/usr/local/bin/node";
+			res = "/usr/local/bin/" + exec;
 		}
 
 		if (res != null && Files.exists(Paths.get(res))) {
 			return res;
 		} else if (!alreadyWarned) {
-			warnNodeJSMissing();
+			warnExecMissing(exec);
 			alreadyWarned = true;
 		}
 		return null;
 	}
 
-	private static void warnNodeJSMissing() {
+	private static void warnExecMissing(String exec) {
 		Display.getDefault().asyncExec(() -> {
-			MessageDialog.openWarning(Display.getCurrent().getActiveShell(), "Missing node.js",
+			MessageDialog.openWarning(Display.getCurrent().getActiveShell(), "Missing " + exec,
 					"Could not find node.js. This will result in editors missing key features.\n"
 							+ "Please make sure node.js is installed and that your PATH environement variable contains the location to the `node` executable.");
 		});
