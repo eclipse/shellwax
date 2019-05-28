@@ -114,4 +114,11 @@
             class="org.eclipse.shellwax.internal.ShDocumentSetupParticipant">
       </participant>
    </extension>
+   <extension
+      point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
+   <languageConfiguration
+         contentTypeId="org.eclipse.shellwax.sh"
+         path="language-configurations/language-configuration.json">
+   </languageConfiguration>
+</extension>
 </plugin>
