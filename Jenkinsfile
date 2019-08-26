@@ -58,7 +58,7 @@ spec:
 			}
 			post {
 				always {
-					archiveArtifacts artifacts: 'repository/target/repository/**,*/target/work/configuration/*.log,*/target/work/data/.metadata/.log,*/target/work/data/languageServers-log/**'
+					archiveArtifacts artifacts: 'org.eclipse.shellwax.site/target/repository/**,*/target/work/configuration/*.log,*/target/work/data/.metadata/.log,*/target/work/data/languageServers-log/**'
 				}
 			}
 		}

@@ -224,4 +224,15 @@
 		<module>org.eclipse.shellwax.feature</module>
 		<module>org.eclipse.shellwax.site</module>
 	</modules>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>cbi</id>
+			<url>https://repo.eclipse.org/content/groups/cbi</url>
+			<snapshots><enabled>true</enabled></snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
