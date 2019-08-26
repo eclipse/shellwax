@@ -1,6 +1,6 @@
 pipeline {
 	options {
-		timeout(time: 30, unit: 'MINUTES')
+		timeout(time: 60, unit: 'MINUTES')
 		buildDiscarder(logRotator(numToKeepStr:'10'))
 	}
   agent {
@@ -51,7 +51,6 @@ spec:
 			}
 			post {
 				always {
-					junit '*/target/surefire-reports/TEST-*.xml'
 					archiveArtifacts artifacts: 'repository/target/repository/**,*/target/work/configuration/*.log,*/target/work/data/.metadata/.log,*/target/work/data/languageServers-log/**'
 				}
 			}
