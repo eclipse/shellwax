@@ -66,11 +66,13 @@ spec:
 			when {
 				branch 'master'
 			}
-			steps {
-				sshagent ( ['project-storage.eclipse.org-bot-ssh']) {
-					sh 'ssh genie.shellwax@projects-storage.eclipse.org rm -rf /home/data/httpd/download.eclipse.org/shellwax/snapshots'
-					sh 'ssh genie.shellwax@projects-storage.eclipse.org mkdir -p /home/data/httpd/download.eclipse.org/shellwax/snapshots'
-					sh 'scp -r org.eclipse.shellwax.site/target/repository/* genie.shellwax@projects-storage.eclipse.org:/home/data/httpd/download.eclipse.org/shellwax/snapshots'
+			container('jnlp') {
+				steps {
+					sshagent ( ['projects-storage.eclipse.org-bot-ssh']) {
+						sh 'ssh genie.shellwax@projects-storage.eclipse.org rm -rf /home/data/httpd/download.eclipse.org/shellwax/snapshots'
+						sh 'ssh genie.shellwax@projects-storage.eclipse.org mkdir -p /home/data/httpd/download.eclipse.org/shellwax/snapshots'
+						sh 'scp -r org.eclipse.shellwax.site/target/repository/* genie.shellwax@projects-storage.eclipse.org:/home/data/httpd/download.eclipse.org/shellwax/snapshots'
+					}
 				}
 			}
 		}
