@@ -7,13 +7,13 @@ ShellWax is a shell script development plugin for the Eclipse IDE, providing a r
 
 ## Download/Install
 
-From a working Eclipse IDE, install from p2 repository [https://akurtakov.fedorapeople.org/shellwax/](https://akurtakov.fedorapeople.org/shellwax/).
+From a working Eclipse IDE, install from the Update Site at [https://akurtakov.fedorapeople.org/shellwax/](https://akurtakov.fedorapeople.org/shellwax/).
 
 ### Prerequisites
-In order to use ShellWax on the user machine it's mandatory to have the following installed and available on PATH env variable:
+In order to use ShellWax on the user machine it's mandatory to have the following installed and available on PATH environment variable:
 - Node.js (node)
 - NPM (npm)
-- Bash (bash). Note: Windows users should have bash installed via [Windows Sybsystem For Linux and their distro of choice](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+- Bash (bash). Note: Windows users should have bash installed via [Windows Subsystem For Linux and their distro of choice](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 
 ## Features
@@ -32,6 +32,6 @@ The Bash Language Server supplies ShellWax with the majority of the edition abil
 
 ### License
 
-Corrosion is an open-source project licensed under [The Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-2.0/)
+Corrosion is an Open Source project licensed under [The Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-2.0/)
 
 [More Licensing Information](LICENSE)
