@@ -66,7 +66,7 @@
         class="org.eclipse.shellwax.internal.run.ShLaunchShortcut"
         id="org.eclipse.shellwax.shshortcut"
         label="Shell Script"
-        icon="icons/script.gif"
+        icon="icons/sh.png"
         modes="run">
         <contextualLaunch>
             <enablement>
@@ -101,7 +101,7 @@
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
             configTypeID="org.eclipse.shellwax.shlaunchonfigtype"
-            icon="icons/script.gif"
+            icon="icons/sh.png"
             id="org.eclipse.shellwax.launchImage">
       </launchConfigurationTypeImage>
 </extension>
@@ -120,5 +120,10 @@
          contentTypeId="org.eclipse.shellwax.sh"
          path="language-configurations/language-configuration.json">
    </languageConfiguration>
+</extension>
+<extension point="org.eclipse.ui.genericeditor.icons">
+  <icon
+  contentType="org.eclipse.shellwax.sh"
+  icon="icons/sh.png" />
 </extension>
 </plugin>
