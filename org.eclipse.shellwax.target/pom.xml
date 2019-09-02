@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>org.eclipse.shellwax</artifactId>
 		<groupId>org.eclipse.shellwax</groupId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>target-platform</artifactId>
 	<packaging>eclipse-target-definition</packaging>
