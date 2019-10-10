@@ -29,7 +29,7 @@ import org.eclipse.lsp4e.server.ProcessStreamConnectionProvider;
 import org.eclipse.swt.widgets.Display;
 
 public class BashLanguageServer extends ProcessStreamConnectionProvider {
-	private static final String LOCAL_PATH = "/.local/share/shellwax";
+	private static final String LOCAL_PATH = "/.local/share/shellwax/1.6.1";
 	private static final String LS_MAIN = "/node_modules/.bin/bash-language-server";
 	private static boolean alreadyWarned;
 
@@ -68,8 +68,11 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 			File installLocation = new File(System.getProperty("user.home") + LOCAL_PATH);
 			if (!installLocation.isDirectory())
 				installLocation.delete();
-			if (!installLocation.exists())
+			if (!installLocation.exists()) {
 				installLocation.mkdirs();
+				File nodeModulesDir = new File(installLocation, "node_modules");
+				nodeModulesDir.mkdir();
+			}
 			String npmPath = getExecLocation("npm");
 			if (Platform.getOS().equals(Platform.OS_WIN32)) {
 				npmPath = npmPath+".cmd";
@@ -78,7 +81,8 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 				List<String> commands = new ArrayList<>();
 				commands.add(npmPath);
 				commands.add("install");
-				commands.add("bash-language-server");
+				commands.add("--prefix=.");
+				commands.add("bash-language-server@1.6.1");
 				ProcessBuilder pb = new ProcessBuilder(commands);
 				pb.directory(installLocation);
 				try {
