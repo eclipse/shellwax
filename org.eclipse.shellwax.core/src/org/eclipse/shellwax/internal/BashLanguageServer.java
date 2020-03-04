@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019 Red Hat Inc. and others.
+ * Copyright (c) 2019, 2020 Red Hat Inc. and others.
  *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
@@ -29,7 +29,7 @@ import org.eclipse.lsp4e.server.ProcessStreamConnectionProvider;
 import org.eclipse.swt.widgets.Display;
 
 public class BashLanguageServer extends ProcessStreamConnectionProvider {
-	private static final String LS_VERSION = "1.7.0";
+	private static final String LS_VERSION = "1.9.0";
 	private static final String LOCAL_PATH = "/.local/share/shellwax/"+LS_VERSION;
 	private static final String LS_MAIN = "/node_modules/.bin/bash-language-server";
 	private static boolean alreadyWarned;
