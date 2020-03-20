@@ -42,6 +42,7 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 		} else {
 			lsPath = lsPath + LS_MAIN;
 		}
+		
 		return lsPath;
 	}
 	
