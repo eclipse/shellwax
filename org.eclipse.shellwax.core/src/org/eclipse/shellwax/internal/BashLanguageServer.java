@@ -32,10 +32,22 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 	private static final String LS_VERSION = "1.11.1";
 	private static final String LOCAL_PATH = "/.local/share/shellwax/"+LS_VERSION;
 	private static final String LS_MAIN = "/node_modules/.bin/bash-language-server";
+	private statis final String LS_MAIN_WIN32 = "/bash-language-server";
 	private static boolean alreadyWarned;
 
+	private static String getLsPath() {
+		String basePath = System.getProperty("user.home") + LOCAL_PATH;
+		if (Platform.getOS().equals(Platform.OS_WIN32)) {
+			basePath = basePath + LS_MAIN_WIN32 + '.cmd';
+		}
+		else
+		{
+			basePath = basePath + LS_MAIN;
+		}
+	}
+	
 	private static boolean isInstalled() {
-		File installLocation = new File(System.getProperty("user.home") + LOCAL_PATH + LS_MAIN);
+		File installLocation = new File(getLsPath());
 		if (installLocation.exists() && installLocation.canExecute()) {
 			return true;
 		}
@@ -49,7 +61,7 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 			if (!isInstalled()) {
 				installLS();
 			}
-			String lsPath = System.getProperty("user.home") + LOCAL_PATH + LS_MAIN;
+			String lsPath = getLsPath();
 			if (Platform.getOS().equals(Platform.OS_WIN32)) {
 				commands.add("cmd");
 				commands.add("/c");
