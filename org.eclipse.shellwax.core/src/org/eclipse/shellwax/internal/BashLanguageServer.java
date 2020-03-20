@@ -36,14 +36,16 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 	private static boolean alreadyWarned;
 
 	private static String getLsPath() {
-		String basePath = System.getProperty("user.home") + LOCAL_PATH;
+		String lsPath = System.getProperty("user.home") + LOCAL_PATH;
 		if (Platform.getOS().equals(Platform.OS_WIN32)) {
-			basePath = basePath + LS_MAIN_WIN32 + ".cmd";
+			lsPath = lsPath + LS_MAIN_WIN32 + ".cmd";
 		}
 		else
 		{
-			basePath = basePath + LS_MAIN;
+			lsPath = lsPath + LS_MAIN;
 		}
+		
+		return lsPath;
 	}
 	
 	private static boolean isInstalled() {
