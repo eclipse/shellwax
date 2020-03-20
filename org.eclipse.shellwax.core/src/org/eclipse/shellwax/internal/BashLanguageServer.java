@@ -32,7 +32,7 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 	private static final String LS_VERSION = "1.11.1";
 	private static final String LOCAL_PATH = "/.local/share/shellwax/"+LS_VERSION;
 	private static final String LS_MAIN = "/node_modules/.bin/bash-language-server";
-	private statis final String LS_MAIN_WIN32 = "/bash-language-server";
+	private static final String LS_MAIN_WIN32 = "/bash-language-server";
 	private static boolean alreadyWarned;
 
 	private static String getLsPath() {
