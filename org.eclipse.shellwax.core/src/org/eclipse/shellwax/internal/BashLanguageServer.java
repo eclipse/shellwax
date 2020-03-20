@@ -38,7 +38,7 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 	private static String getLsPath() {
 		String basePath = System.getProperty("user.home") + LOCAL_PATH;
 		if (Platform.getOS().equals(Platform.OS_WIN32)) {
-			basePath = basePath + LS_MAIN_WIN32 + '.cmd';
+			basePath = basePath + LS_MAIN_WIN32 + ".cmd";
 		}
 		else
 		{
