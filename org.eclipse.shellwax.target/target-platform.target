@@ -2,29 +2,11 @@
 <target name="shellwax" sequenceNumber="4">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-	<repository location="http://download.eclipse.org/eclipse/updates/4.16/"/>
-	<unit id="org.eclipse.ui.tests.harness" version="0.0.0"/>
-	<unit id="org.hamcrest.core" version="0.0.0"/>
-	<unit id="org.junit" version="0.0.0"/>
-	<unit id="org.mockito" version="0.0.0"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 	<repository location="http://download.eclipse.org/releases/2020-06/"/>
 	<unit id="org.eclipse.tm4e.feature.feature.group" version="0.0.0"/>
-	<unit id="org.apache.commons.io" version="0.0.0"/>
-	<unit id="org.objectweb.asm" version="0.0.0"/>
-	<unit id="org.eclipse.mylyn.wikitext_feature.feature.group" version="0.0.0"/>
-	<unit id="org.eclipse.jdt.annotation" version="0.0.0"/>
 	<unit id="org.eclipse.platform.ide" version="0.0.0"/>
 	<unit id="org.eclipse.ui.genericeditor" version="0.0.0"/>
-	<unit id="org.eclipse.xtend.lib" version="0.0.0"/>
 	<unit id="org.eclipse.lsp4e" version="0.0.0"/>
-	<unit id="org.eclipse.lsp4e.debug" version="0.0.0"/>
-	<unit id="org.eclipse.lsp4j" version="0.0.0"/>
-	<unit id="org.eclipse.lsp4j.jsonrpc" version="0.0.0"/>
-	<unit id="org.eclipse.lsp4j.generator" version="0.0.0"/>
-	<unit id="org.eclipse.lsp4j.jsonrpc.debug" version="0.0.0"/> 
-	<unit id="org.eclipse.lsp4j.debug" version="0.0.0"/> 
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 	<repository location="http://download.eclipse.org/cbi/updates/license/"/>
