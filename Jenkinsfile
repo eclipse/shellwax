@@ -13,7 +13,7 @@ kind: Pod
 spec:
   containers:
   - name: container
-    image: mickaelistria/fedora-gtk3-mutter-java-node@sha256:5362b90f4b41ec8391441c17e74aeb9a02ac5a04a5ff4a3030f77fdb627b9f24
+    image: docker.io/mickaelistria/fedora-gtk3-mutter-java-node:java-11
     tty: true
     command: [ "uid_entrypoint", "cat" ]
     resources:
