@@ -27,6 +27,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.lsp4e.server.ProcessStreamConnectionProvider;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.wildwebdeveloper.embedder.node.NodeJSManager;
 
 public class BashLanguageServer extends ProcessStreamConnectionProvider {
 	private static final String LS_VERSION = "1.16.1";
@@ -55,7 +56,10 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 
 	public BashLanguageServer() {
 		List<String> commands = new ArrayList<>();
-		String nodePath = getExecLocation("node");
+		String nodePath = NodeJSManager.getNodeJsLocation().getAbsolutePath();
+		if (nodePath == null) {
+			nodePath = getExecLocation("node");
+		}
 		if (nodePath != null) {
 			if (!isInstalled()) {
 				installLS();
@@ -85,7 +89,10 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 				File nodeModulesDir = new File(installLocation, "node_modules");
 				nodeModulesDir.mkdir();
 			}
-			String npmPath = getExecLocation("npm");
+			String npmPath = NodeJSManager.getNpmLocation().getAbsolutePath();
+			if (npmPath == null) {
+				npmPath = getExecLocation("npm");
+			}
 			if (Platform.getOS().equals(Platform.OS_WIN32)) {
 				npmPath = npmPath+".cmd";
 			}

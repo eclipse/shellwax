@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ShellWax 
 Bundle-SymbolicName: org.eclipse.shellwax.core;singleton:=true
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 1.1.1.qualifier
 Bundle-Vendor: Eclipse.org - ShellWax
 Automatic-Module-Name: org.eclipse.shellwax.core
 Bundle-RequiredExecutionEnvironment: JavaSE-11
@@ -20,4 +20,5 @@ Require-Bundle: org.eclipse.ui.genericeditor,
  org.eclipse.ui.console,
  org.eclipse.core.filebuffers,
  org.eclipse.text,
- org.eclipse.core.jobs
+ org.eclipse.core.jobs,
+ org.eclipse.wildwebdeveloper.embedder.node;bundle-version="0.2.0"
