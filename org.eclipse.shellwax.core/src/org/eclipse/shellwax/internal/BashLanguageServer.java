@@ -20,10 +20,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
-import org.eclipse.core.runtime.ICoreRunnable;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.lsp4e.server.ProcessStreamConnectionProvider;
 import org.eclipse.swt.widgets.Display;
@@ -34,7 +33,9 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 	private static final String LOCAL_PATH = "/.local/share/shellwax/"+LS_VERSION;
 	private static final String LS_MAIN = "/node_modules/.bin/bash-language-server";
 	private static final String LS_MAIN_WIN32 = "/bash-language-server";
+
 	private static boolean alreadyWarned;
+	private static CompletableFuture<Void> initializeFuture;
 
 	private static String getLsPath() {
 		String lsPath = System.getProperty("user.home") + LOCAL_PATH;
@@ -79,41 +80,57 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 		}
 	}
 
-	private synchronized void installLS() {
-		Job installJob = Job.create("Bash Language server installation", (ICoreRunnable) monitor -> {
-			File installLocation = new File(System.getProperty("user.home") + LOCAL_PATH);
-			if (!installLocation.isDirectory())
-				installLocation.delete();
-			if (!installLocation.exists()) {
-				installLocation.mkdirs();
-				File nodeModulesDir = new File(installLocation, "node_modules");
-				nodeModulesDir.mkdir();
-			}
-			String npmPath = NodeJSManager.getNpmLocation().getAbsolutePath();
-			if (npmPath == null) {
-				npmPath = getExecLocation("npm");
-			}
-			if (Platform.getOS().equals(Platform.OS_WIN32)) {
-				npmPath = npmPath+".cmd";
-			}
-			if (npmPath != null) {
-				List<String> commands = new ArrayList<>();
-				commands.add(npmPath);
-				commands.add("install");
-				commands.add("--prefix=.");
-				commands.add("bash-language-server@"+LS_VERSION);
-				ProcessBuilder pb = new ProcessBuilder(commands);
-				pb.directory(installLocation);
-				try {
-					Process ps = pb.start();
-					ps.waitFor();
-				} catch (IOException | InterruptedException e) {
-					e.printStackTrace();
+	@Override
+	public void start() throws IOException {
+		if (!isInstalled()) {
+			installLS().join();
+		}
+		super.start();
+	}
 
+	/**
+	 * Creates and asynchronously runs a runnable for the Bash Language Server module 
+	 * installation if it's not yet created. Returns the CompletableFuture object to follow the 
+	 * installation runnable that allows at least to wait for the finishing of the installation.
+	 * 
+	 * @return CompletableFuture for the installation  runnable
+	 */
+	private synchronized CompletableFuture<Void> installLS() {
+		if (initializeFuture == null) {
+			initializeFuture = CompletableFuture.runAsync(() -> {
+				File installLocation = new File(System.getProperty("user.home") + LOCAL_PATH);
+				if (!installLocation.isDirectory())
+					installLocation.delete();
+				if (!installLocation.exists()) {
+					installLocation.mkdirs();
+					File nodeModulesDir = new File(installLocation, "node_modules");
+					nodeModulesDir.mkdir();
 				}
-			}
-		});
-		installJob.schedule();
+				String npmPath = NodeJSManager.getNpmLocation().getAbsolutePath();
+				if (npmPath == null) {
+					npmPath = getExecLocation("npm");
+				}
+				if (Platform.getOS().equals(Platform.OS_WIN32)) {
+					npmPath = npmPath+".cmd";
+				}
+				if (npmPath != null) {
+					List<String> commands = new ArrayList<>();
+					commands.add(npmPath);
+					commands.add("install");
+					commands.add("--prefix=.");
+					commands.add("bash-language-server@"+LS_VERSION);
+					ProcessBuilder pb = new ProcessBuilder(commands);
+					pb.directory(installLocation);
+					try {
+						Process ps = pb.start();
+						ps.waitFor();
+					} catch (IOException | InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+		return initializeFuture;
 	}
 
 	private static String getExecLocation(String exec) {
