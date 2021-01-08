@@ -3,7 +3,7 @@
 <target name="shellwax" sequenceNumber="5">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-	<repository location="http://download.eclipse.org/releases/2020-06/"/>
+	<repository location="http://download.eclipse.org/releases/2020-12/"/>
 	<unit id="org.eclipse.tm4e.feature.feature.group" version="0.0.0"/>
 	<unit id="org.eclipse.platform.ide" version="0.0.0"/>
 	<unit id="org.eclipse.ui.genericeditor" version="0.0.0"/>
