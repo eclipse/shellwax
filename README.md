@@ -1,11 +1,20 @@
 # Eclipse ShellWax
 
+<a href="https://mickaelistria.github.io/redirctToEclipseIDECloneCommand/redirect.html"><img src="https://mickaelistria.github.io/redirctToEclipseIDECloneCommand/cloneToEclipseBadge.png" alt="Clone to Eclipse IDE"/></a>
+
 ### Shell script edition in Eclipse IDE
 
 ShellWax is a shell script development plugin for the Eclipse IDE, providing a rich edition experience through integration with the [Bash Language Server](https://github.com/bash-lsp/bash-language-server).
 
-
 ## Download/Install
+
+With Eclipse IDE properly installed on your machine, just click [HERE](eclipse+mpc://marketplace.eclipse.org/install/4528322)
+
+_OR_
+
+Browse to https://marketplace.eclipse.org/content/shellwax and follow installation instructions
+
+_OR_
 
 From a working Eclipse IDE, install from the Update Site at [https://download.eclipse.org/shellwax/snapshots/](https://download.eclipse.org/shellwax/snapshots/).
 
