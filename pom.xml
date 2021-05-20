@@ -17,7 +17,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<tycho.version>2.2.0</tycho.version>
+		<tycho.version>2.3.0</tycho.version>
 		<tycho.test.platformArgs />
 		<tycho.test.jvmArgs>-Xmx512m</tycho.test.jvmArgs>
 
@@ -105,7 +105,7 @@
 					<plugin>
 						<groupId>org.eclipse.cbi.maven.plugins</groupId>
 						<artifactId>eclipse-jarsigner-plugin</artifactId>
-						<version>1.1.7</version>
+						<version>1.3.1</version>
 						<executions>
 							<execution>
 								<id>sign</id>
