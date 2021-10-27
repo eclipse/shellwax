@@ -8,7 +8,7 @@ This page describes the noteworthy improvements provided by each release of Ecli
 ## 1.1.3
 
 * 📅 Release Date: October 27th, 2021
-* All changes: https://github.com/eclipse/wildwebdeveloper/compare/1.1.2...1.1.3
+* All changes: https://github.com/eclipse/shellwax/compare/1.1.2...1.1.3
 
 #### Mac x86_64 and Linux AArch 64 Node.js embedder to the update site
 
