@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.shellwax.feature"
       label="%name"
-      version="1.1.2.qualifier"
+      version="1.1.3.qualifier"
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
 
