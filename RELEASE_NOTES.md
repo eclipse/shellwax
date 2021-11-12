@@ -5,6 +5,18 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 ### Next release...
 
+
+## 1.1.4
+
+* 📅 Release Date: October 12th, 2021
+* All changes: https://github.com/eclipse/shellwax/compare/1.1.3...1.1.4
+
+#### Support shell script files without extensions
+
+Files with the following shebang are supported:
+- #!/bin/sh
+- #!*bash
+
 ## 1.1.3
 
 * 📅 Release Date: October 27th, 2021
