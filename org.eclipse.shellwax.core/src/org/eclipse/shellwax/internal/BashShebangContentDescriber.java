@@ -41,7 +41,7 @@ public class BashShebangContentDescriber implements ITextContentDescriber {
 		if (line == null) {
 			return INVALID;
 		}
-		if (line.startsWith("#!") && line.contains("bash")) {
+		if (line.startsWith("#!") && (line.contains("bash")|| line.contains("bin/sh"))) {
 			return VALID;
 		}
 		return INVALID;
