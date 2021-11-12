@@ -29,6 +29,10 @@ In order to use ShellWax on the user machine it's mandatory to have the followin
 
 ShellWax brings together multiple different sources of features to make an enjoyable developing environment. Here are just a few of the most common features. Download today to discover all Corrosion has to offer.
 
+### Theming
+
+The syntax highlighting is "externalized" to TM4E plugins. You can configure a theme (in the TextMate meaning of a theme) for specific file type in Preferences > TextMate > Grammar, select a language and then click the "Theme" tab on that same page.
+
 ### Bash Language Server
 The Bash Language Server supplies ShellWax with the majority of the edition abilities. More information can be found at the [Bash Language Server GitHub Repository](https://github.com/bash-lsp/bash-language-server).
 - Jump to declaration
