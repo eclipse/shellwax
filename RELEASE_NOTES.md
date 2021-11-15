@@ -5,6 +5,14 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 ### Next release...
 
+## 1.1.4
+
+* 📅 Release Date: November 15th, 2021
+* All changes: https://github.com/eclipse/shellwax/compare/1.1.4...1.1.5
+
+#### Fix content-type detection
+
+Recent changes made that all files could be interpreted as ShellWax files and thus undesired operations from ShellWax could be shown on unrelated files. This is now fixed.
 
 ## 1.1.4
 
