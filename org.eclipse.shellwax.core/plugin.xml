@@ -9,8 +9,7 @@
             file-extensions="sh,bats,inc,bash,command"
             id="org.eclipse.shellwax.sh"
             name="Shell Script"
-            priority="normal"
-            describer="org.eclipse.shellwax.internal.BashShebangContentDescriber">
+            priority="normal">
       </content-type>
       <content-type
             base-type="org.eclipse.shellwax.sh"

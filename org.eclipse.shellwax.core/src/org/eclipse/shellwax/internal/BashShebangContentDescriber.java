@@ -34,7 +34,7 @@ public class BashShebangContentDescriber implements ITextContentDescriber {
 	@Override
 	public int describe(Reader contents, IContentDescription description) throws IOException {
 		if (description == null || description.getContentType() == null || !"org.eclipse.shellwax.shebang".equals(description.getContentType().getId())) {
-			return INDETERMINATE;
+			return INVALID;
 		}
 		BufferedReader reader = new BufferedReader(contents);
 		String line = reader.readLine();
