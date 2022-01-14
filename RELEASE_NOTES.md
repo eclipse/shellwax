@@ -5,6 +5,15 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 ### Next release...
 
+## 1.1.6
+
+* 📅 Release Date: January 14th, 2022
+* All changes: https://github.com/eclipse/shellwax/compare/1.1.5...1.1.6
+
+### Add MacOS AArch64 support ###
+
+Node embedder from latest Wild Web Developer plugin has support for it thus allows installation on MacOS Arm with bundled Node.js so users don't have to manually install it.
+
 ## 1.1.5
 
 * 📅 Release Date: November 15th, 2021
