@@ -24,8 +24,8 @@ public class ShDocumentSetupParticipant implements IDocumentSetupParticipant {
 
 	@Override
 	public void setup(IDocument document) {
-		if (document instanceof IDocumentExtension4) {
-			((IDocumentExtension4)document).setInitialLineDelimiter("\n");
+		if (document instanceof IDocumentExtension4 doc) {
+			doc.setInitialLineDelimiter("\n");
 		}
 		
 	}
