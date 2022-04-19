@@ -49,10 +49,7 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 
 	private static boolean isInstalled() {
 		File installLocation = new File(getLsPath());
-		if (installLocation.exists() && installLocation.canExecute()) {
-			return true;
-		}
-		return false;
+		return installLocation.exists() && installLocation.canExecute();
 	}
 
 	public BashLanguageServer() {
@@ -163,10 +160,9 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 	}
 
 	private static void warnExecMissing(String exec) {
-		Display.getDefault().asyncExec(() -> {
+		Display.getDefault().asyncExec(() ->
 			MessageDialog.openWarning(Display.getCurrent().getActiveShell(), "Missing " + exec,
 					"Could not find node.js. This will result in editors missing key features.\n"
-							+ "Please make sure node.js is installed and that your PATH environement variable contains the location to the `node` executable.");
-		});
+							+ "Please make sure node.js is installed and that your PATH environement variable contains the location to the `node` executable."));
 	}
 }

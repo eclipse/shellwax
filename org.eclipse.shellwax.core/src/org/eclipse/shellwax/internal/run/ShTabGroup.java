@@ -21,8 +21,7 @@ public class ShTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		setTabs(new ILaunchConfigurationTab[] { new ShMainTab(), new CommonTab() });
-
+		setTabs(new ShMainTab(), new CommonTab());
 	}
 
 }

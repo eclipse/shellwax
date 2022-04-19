@@ -61,14 +61,12 @@ public class ShLaunchShortcut implements ILaunchShortcut2 {
 
 	@Override
 	public IResource getLaunchableResource(ISelection selection) {
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+		if (selection instanceof IStructuredSelection structuredSelection) {
 			if (structuredSelection.size() != 1) {
 				return null;
 			}
 			Object firstObject = structuredSelection.getFirstElement();
-			IResource resource = Adapters.adapt(firstObject, IResource.class);
-			return resource;
+			return Adapters.adapt(firstObject, IResource.class);
 		}
 		return null;
 	}
@@ -76,8 +74,8 @@ public class ShLaunchShortcut implements ILaunchShortcut2 {
 	@Override
 	public IResource getLaunchableResource(IEditorPart editor) {
 		IEditorInput input = editor.getEditorInput();
-		if (input instanceof FileEditorInput) {
-			return ((FileEditorInput) input).getFile();
+		if (input instanceof FileEditorInput file) {
+			return file.getFile();
 		}
 		return null;
 	}
