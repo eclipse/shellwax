@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019 Red Hat Inc. and others.
+ * Copyright (c) 2019, 2022 Red Hat Inc. and others.
  *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
@@ -39,14 +39,12 @@ public class ShLaunchShortcut implements ILaunchShortcut2 {
 
 	@Override
 	public void launch(ISelection selection, String mode) {
-		ILaunchConfiguration[] configurations = getLaunchConfigurations(selection);
-		launch(mode, configurations);
+		launch(mode, getLaunchConfigurations(selection));
 	}
 
 	@Override
 	public void launch(IEditorPart editor, String mode) {
-		ILaunchConfiguration[] configurations = getLaunchConfigurations(editor);
-		launch(mode, configurations);
+		launch(mode, getLaunchConfigurations(editor));
 	}
 
 	@Override
@@ -127,8 +125,7 @@ public class ShLaunchShortcut implements ILaunchShortcut2 {
 			LaunchConfigurationSelectionDialog dialog = new LaunchConfigurationSelectionDialog(
 					Display.getDefault().getActiveShell(), configurations);
 			if (dialog.open() == IDialogConstants.OK_ID) {
-				launch(mode,
-						Arrays.asList(dialog.getResult()).toArray(new ILaunchConfiguration[dialog.getResult().length]));
+				launch(mode, Arrays.asList(dialog.getResult()).toArray(ILaunchConfiguration[]::new));
 			}
 		}
 	}
