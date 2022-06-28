@@ -5,7 +5,7 @@ pipeline {
 	}
   agent {
     kubernetes {
-      label 'wildwebdeveloper-buildtest-pod-f34-java11'
+      label 'fedora-gtk3-mutter-java-node'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
@@ -13,7 +13,7 @@ kind: Pod
 spec:
   containers:
   - name: container
-    image: docker.io/mickaelistria/fedora-gtk3-mutter-java-node:34
+    image: docker.io/mickaelistria/fedora-gtk3-mutter-java-node:java-17
     tty: true
     command: [ "uid_entrypoint", "cat" ]
     resources:
