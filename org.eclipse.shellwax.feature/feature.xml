@@ -19,7 +19,7 @@
    </license>
 
    <url>
-      <update label="org.eclipse.shellwax Update Site" url="https://akurtakov.fedorapeople.org/shellwax/"/>
+      <update label="org.eclipse.shellwax Update Site" url="https://download.eclipse.org/shellwax/releases/latest/"/>
       <discovery label="org.eclipse.shellwax Discovery Site" url="https://akurtakov.fedorapeople.org/shellwax/"/>
    </url>
 
