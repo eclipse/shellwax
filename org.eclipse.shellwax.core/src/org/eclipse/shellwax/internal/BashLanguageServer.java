@@ -111,11 +111,7 @@ public class BashLanguageServer extends ProcessStreamConnectionProvider {
 					npmPath = npmPath+".cmd";
 				}
 				if (npmPath != null) {
-					List<String> commands = new ArrayList<>();
-					commands.add(npmPath);
-					commands.add("install");
-					commands.add("--prefix=.");
-					commands.add("bash-language-server@"+LS_VERSION);
+					List<String> commands = List.of(npmPath, "install","--prefix=.","bash-language-server@"+LS_VERSION);
 					ProcessBuilder pb = new ProcessBuilder(commands);
 					pb.directory(installLocation);
 					try {
