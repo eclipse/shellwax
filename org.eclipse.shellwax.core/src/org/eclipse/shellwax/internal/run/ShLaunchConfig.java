@@ -58,7 +58,7 @@ public class ShLaunchConfig extends LaunchConfigurationDelegate {
 		command.add(shellPath);
 		command.addAll(Arrays.asList(shellParams));
 		try {
-			ProcessBuilder pb = new ProcessBuilder(command.toArray(new String[command.size()]));
+			ProcessBuilder pb = new ProcessBuilder(command.toArray(String[]::new));
 			pb.directory(new File(workDir));
 			final Process p = pb.start();
 			DebugPlugin.newProcess(launch, p, shellPath);
