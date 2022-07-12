@@ -20,8 +20,6 @@ From a working Eclipse IDE, install from the Update Site at [https://download.ec
 
 ### Prerequisites
 In order to use ShellWax on the user machine it's mandatory to have the following installed and available on PATH environment variable:
-- Node.js (node)
-- NPM (npm)
 - Bash (bash). Note: Windows users should have bash installed via [Windows Subsystem For Linux and their distro of choice](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 
