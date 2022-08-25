@@ -5,6 +5,11 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 ### Next release...
 
+## 1.2.1
+
+* 📅 Release Date: Aug 25th, 2022
+* All changes: https://github.com/eclipse/shellwax/compare/1.2.0...1.2.1
+
 ## 1.2.0
 
 * 📅 Release Date: July 12th, 2022
