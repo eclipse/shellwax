@@ -5,6 +5,12 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 ### Next release...
 
+## 1.2.2
+
+* 📅 Release Date: Dec 9th, 2022
+* Bash LSP dependency has been updated to version 4.0.1 . See [changelog](https://github.com/bash-lsp/bash-language-server/blob/main/server/CHANGELOG.md) for details.
+* All changes: https://github.com/eclipse/shellwax/compare/1.2.1...1.2.2
+
 ## 1.2.1
 
 * 📅 Release Date: Aug 25th, 2022
