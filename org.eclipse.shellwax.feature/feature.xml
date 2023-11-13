@@ -6,7 +6,7 @@
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
 
-   <description url="https://github.com/akurtakov/shellwax/">
+   <description url="https://github.com/eclipse/shellwax/">
       %description
    </description>
 
@@ -20,7 +20,6 @@
 
    <url>
       <update label="org.eclipse.shellwax Update Site" url="https://download.eclipse.org/shellwax/releases/latest/"/>
-      <discovery label="org.eclipse.shellwax Discovery Site" url="https://akurtakov.fedorapeople.org/shellwax/"/>
    </url>
 
    <plugin
