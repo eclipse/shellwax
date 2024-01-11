@@ -5,8 +5,7 @@
 <extension
          point="org.eclipse.core.contenttype.contentTypes">
       <content-type
-            base-type="org.eclipse.core.runtime.text"
-            file-extensions="sh,bats,inc,bash,command"
+            base-type="org.eclipse.tm4e.language_pack.shellscript"
             id="org.eclipse.shellwax.sh"
             name="Shell Script"
             priority="normal">
@@ -29,10 +28,6 @@
    </extension>
     <extension
          point="org.eclipse.tm4e.registry.grammars">
-      <grammar
-            path="grammar/shell.plist"
-            scopeName="source.shell">
-      </grammar>
       <scopeNameContentTypeBinding
             contentTypeId="org.eclipse.shellwax.sh"
             scopeName="source.shell">
@@ -129,17 +124,6 @@
             extensions="sh"
             class="org.eclipse.shellwax.internal.ShDocumentSetupParticipant">
       </participant>
-   </extension>
-   <extension
-      point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
-      <languageConfiguration
-            contentTypeId="org.eclipse.shellwax.sh"
-            path="language-configurations/language-configuration.json">
-     </languageConfiguration>
-     <languageConfiguration
-            contentTypeId="org.eclipse.shellwax.shebang"
-            path="language-configurations/language-configuration.json">
-     </languageConfiguration>
    </extension>
    <extension point="org.eclipse.ui.genericeditor.icons">
      <icon
