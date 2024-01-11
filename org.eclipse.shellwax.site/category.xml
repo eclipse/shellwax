@@ -6,8 +6,6 @@
    <feature url="features/org.eclipse.shellwax.feature.source_0.0.0.jar" id="org.eclipse.shellwax.feature.source" version="0.0.0">
       <category name="org.eclipse.shellwax Developer Resources"/>
    </feature>
-   <feature id="org.eclipse.wildwebdeveloper.embedder.node.feature" version="0.0.0">
-      <category name="Dependencies"/>
-   </feature>
-   <category-def name="Dependencies" label="Transitive Dependencies"/>
+   <repository-reference location="https://download.eclipse.org/tm4e/releases/latest/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/wildwebdeveloper/releases/latest/" enabled="true" />
 </site>
