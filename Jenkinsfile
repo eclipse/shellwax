@@ -5,7 +5,7 @@ pipeline {
 	}
   agent {
     kubernetes {
-      label 'fedora-gtk3-mutter-java-node'
+      inheritFrom 'fedora-gtk3-mutter-java-node'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
