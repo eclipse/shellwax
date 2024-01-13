@@ -37,11 +37,7 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<target>
-						<artifact>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>target-platform</artifactId>
-							<version>${project.version}</version>
-						</artifact>
+						<file>${maven.multiModuleProjectDirectory}/org.eclipse.shellwax.target/target-platform.target</file>
 					</target>
 					<environments>
 						<environment>
@@ -215,7 +211,6 @@
 	</profiles>
 	<modules>
 		<module>org.eclipse.shellwax.core</module>
-		<module>org.eclipse.shellwax.target</module>
 		<module>org.eclipse.shellwax.feature</module>
 		<module>org.eclipse.shellwax.site</module>
 	</modules>
