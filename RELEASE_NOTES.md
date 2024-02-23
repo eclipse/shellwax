@@ -5,6 +5,19 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 ### Next release...
 
+## 1.3.0
+
+* 📅 Release Date: TBD
+* All changes: https://github.com/eclipse/shellwax/compare/1.2.3...1.3.0
+
+### Require Java 17 as runtime JVM ###
+
+* Starting with these ShellWax release it requires Java 17 JVM to be used to run Eclipse for the plugin to work.
+
+### Bash LS update ###
+* Bash LSP dependency has been updated to version 5.1.2 . See [changelog](https://github.com/bash-lsp/bash-language-server/blob/main/server/CHANGELOG.md#5.1.2 ) for details.
+
+
 ## 1.2.3
 
 * 📅 Release Date: Jun 6th, 2023

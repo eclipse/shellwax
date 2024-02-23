@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.shellwax.feature"
       label="%name"
-      version="1.2.3.qualifier"
+      version="1.3.0.qualifier"
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
 
@@ -24,8 +24,6 @@
 
    <plugin
          id="org.eclipse.shellwax.core"
-         download-size="0"
-         install-size="0"
          version="0.0.0"/>
 
 </feature>
