@@ -6,7 +6,7 @@
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
 
-   <description url="https://github.com/eclipse/shellwax/">
+   <description url="https://github.com/eclipse-shellwax/shellwax/">
       %description
    </description>
 
