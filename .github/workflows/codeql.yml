@@ -1,0 +1,37 @@
+name: CodeQL
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '30 4 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Analyze Java
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+    - uses: actions/checkout@v7
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v4
+      with:
+        languages: java
+        # Analyze sources without building: avoids the Tycho pomless
+        # build being run by the CodeQL tracer with an unsuitable JDK.
+        build-mode: none
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v4
+      with:
+        category: "/language:java"
