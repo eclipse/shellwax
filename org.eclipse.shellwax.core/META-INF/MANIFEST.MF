@@ -6,7 +6,6 @@ Bundle-SymbolicName: org.eclipse.shellwax.core;singleton:=true
 Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: Eclipse.org - ShellWax
 Automatic-Module-Name: org.eclipse.shellwax.core
-Eclipse-BundleShape: dir
 Require-Bundle: org.eclipse.ui.genericeditor,
  org.eclipse.tm4e.ui;bundle-version="0.12.0",
  org.eclipse.lsp4e;bundle-version="0.18.6",
