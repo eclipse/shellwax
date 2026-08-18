@@ -1,5 +1,6 @@
 # Eclipse ShellWax
 
+[![Build Tycho](https://github.com/eclipse-shellwax/shellwax/actions/workflows/maven.yml/badge.svg)](https://github.com/eclipse-shellwax/shellwax/actions/workflows/maven.yml)
 <a href="https://mickaelistria.github.io/redirctToEclipseIDECloneCommand/redirect.html"><img src="https://mickaelistria.github.io/redirctToEclipseIDECloneCommand/cloneToEclipseBadge.png" alt="Clone to Eclipse IDE"/></a>
 
 ### Shell script edition in Eclipse IDE
@@ -16,16 +17,20 @@ Browse to https://marketplace.eclipse.org/content/shellwax and follow installati
 
 _OR_
 
-From a working Eclipse IDE, install from the Update Site at [https://download.eclipse.org/shellwax/snapshots/](https://download.eclipse.org/shellwax/snapshots/).
+From a working Eclipse IDE, install from the Update Site:
+- Releases: [https://download.eclipse.org/shellwax/releases/latest/](https://download.eclipse.org/shellwax/releases/latest/)
+- Snapshots (built from `master`): [https://download.eclipse.org/shellwax/snapshots/](https://download.eclipse.org/shellwax/snapshots/)
 
 ### Prerequisites
-In order to use ShellWax on the user machine it's mandatory to have the following installed and available on PATH environment variable:
-- Bash (bash). Note: Windows users should have bash installed via [Windows Subsystem For Linux and their distro of choice](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+- Eclipse IDE running on Java 25 or newer.
+- Bash (`bash`) available on the `PATH`, needed to run scripts. Note: Windows users should have bash installed via [Windows Subsystem For Linux and their distro of choice](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+- Optional: [`shfmt`](https://github.com/mvdan/sh) on the `PATH` to enable the Format command.
 
+Node.js and the Bash Language Server itself are provided automatically: Node.js is embedded via the Wild Web Developer node embedder and the language server is installed on first use.
 
 ## Features
 
-ShellWax brings together multiple different sources of features to make an enjoyable developing environment. Here are just a few of the most common features. Download today to discover all Corrosion has to offer.
+ShellWax brings together multiple different sources of features to make an enjoyable developing environment. Here are just a few of the most common features. Download today to discover all ShellWax has to offer.
 
 ### Theming
 
@@ -40,9 +45,22 @@ The Bash Language Server supplies ShellWax with the majority of the edition abil
 - Code completion
 - Simple diagnostics reporting
 - Documentation for flags on hover
+- Formatting (when `shfmt` is installed)
+
+### Shebang detection
+
+Files without an extension whose first line is a `#!/bin/sh` or `#!...bash` shebang are recognized as shell scripts: they open in the shell script editor and get the shell script icon.
+
+### Running scripts
+
+Right click a shell script and choose _Run As > Shell Script_ to run it in the Console view. The launch configuration allows setting arguments, the working directory and enabling `-x` to trace executed commands.
 
 ### License
 
 ShellWax is an Open Source project licensed under [The Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-2.0/)
 
 [More Licensing Information](LICENSE)
+
+### Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Issues are tracked in [GitHub issues](https://github.com/eclipse-shellwax/shellwax/issues).
