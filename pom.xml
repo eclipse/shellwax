@@ -9,6 +9,26 @@
 	<packaging>pom</packaging>
 	<name>org.eclipse.shellwax :: parent</name>
 	<description>org.eclipse.shellwax parent</description>
+	<url>https://github.com/eclipse-shellwax/shellwax</url>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 2.0</name>
+			<url>https://www.eclipse.org/legal/epl-2.0/</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:https://github.com/eclipse-shellwax/shellwax.git</connection>
+		<developerConnection>scm:git:git@github.com:eclipse-shellwax/shellwax.git</developerConnection>
+		<url>https://github.com/eclipse-shellwax/shellwax</url>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/eclipse-shellwax/shellwax/issues</url>
+	</issueManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
