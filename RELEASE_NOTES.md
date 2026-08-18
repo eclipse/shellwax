@@ -8,7 +8,7 @@ This page describes the noteworthy improvements provided by each release of Ecli
 ## 1.3.0
 
 * 📅 Release Date: TBD
-* All changes: https://github.com/eclipse/shellwax/compare/1.2.3...1.3.0
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.2.3...1.3.0
 
 ### Require Java 21 as runtime JVM ###
 
@@ -26,23 +26,23 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 * 📅 Release Date: Jun 6th, 2023
 * Bash LSP dependency has been updated to version 4.9.2 . See [changelog](https://github.com/bash-lsp/bash-language-server/blob/main/server/CHANGELOG.md#492 ) for details.
-* All changes: https://github.com/eclipse/shellwax/compare/1.2.2...1.2.3
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.2.2...1.2.3
 
 ## 1.2.2
 
 * 📅 Release Date: Dec 9th, 2022
 * Bash LSP dependency has been updated to version 4.1.0 . See [changelog](https://github.com/bash-lsp/bash-language-server/blob/main/server/CHANGELOG.md) for details.
-* All changes: https://github.com/eclipse/shellwax/compare/1.2.1...1.2.2
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.2.1...1.2.2
 
 ## 1.2.1
 
 * 📅 Release Date: Aug 25th, 2022
-* All changes: https://github.com/eclipse/shellwax/compare/1.2.0...1.2.1
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.2.0...1.2.1
 
 ## 1.2.0
 
 * 📅 Release Date: July 12th, 2022
-* All changes: https://github.com/eclipse/shellwax/compare/1.1.6...1.2.0
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.1.6...1.2.0
 
 ### Require Java 17 as runtime JVM ###
 
@@ -55,7 +55,7 @@ Bash LSP dependency has been updated to version 3.0.4. See [changelog](https://g
 ## 1.1.6
 
 * 📅 Release Date: January 14th, 2022
-* All changes: https://github.com/eclipse/shellwax/compare/1.1.5...1.1.6
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.1.5...1.1.6
 
 ### Add MacOS AArch64 support ###
 
@@ -64,7 +64,7 @@ Node embedder from latest Wild Web Developer plugin has support for it thus allo
 ## 1.1.5
 
 * 📅 Release Date: November 15th, 2021
-* All changes: https://github.com/eclipse/shellwax/compare/1.1.4...1.1.5
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.1.4...1.1.5
 
 #### Fix content-type detection
 
@@ -73,7 +73,7 @@ Recent changes made that all files could be interpreted as ShellWax files and th
 ## 1.1.4
 
 * 📅 Release Date: November 12th, 2021
-* All changes: https://github.com/eclipse/shellwax/compare/1.1.3...1.1.4
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.1.3...1.1.4
 
 #### Support shell script files without extensions
 
@@ -84,7 +84,7 @@ Files with the following shebang are supported:
 ## 1.1.3
 
 * 📅 Release Date: October 27th, 2021
-* All changes: https://github.com/eclipse/shellwax/compare/1.1.2...1.1.3
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.1.2...1.1.3
 
 #### Mac x86_64 and Linux AArch 64 Node.js embedder to the update site
 

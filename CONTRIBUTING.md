@@ -15,7 +15,7 @@ more.
 
 * https://projects.eclipse.org/projects/tools.shellwax/developer
 
-This project uses [GitHub issues](https://github.com/eclipse/shellwax/issues) on the respective repositories to track ongoing development and issues.
+This project uses [GitHub issues](https://github.com/eclipse-shellwax/shellwax/issues) on the respective repositories to track ongoing development and issues.
 
 Be sure to search for existing bugs before you create another one. Remember that
 contributions are always welcome!
