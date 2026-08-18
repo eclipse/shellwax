@@ -3,6 +3,11 @@
    <feature url="features/org.eclipse.shellwax.feature_0.0.0.jar" id="org.eclipse.shellwax.feature" version="0.0.0">
       <category name="org.eclipse.shellwax"/>
    </feature>
+   <category-def name="org.eclipse.shellwax" label="ShellWax">
+      <description>
+         Shell script editing and launching support for the Eclipse IDE, based on the Bash Language Server.
+      </description>
+   </category-def>
    <repository-reference location="https://download.eclipse.org/tm4e/releases/latest/" enabled="true" />
    <repository-reference location="https://download.eclipse.org/wildwebdeveloper/releases/latest/" enabled="true" />
    <repository-reference location="https://download.eclipse.org/justj/jres/25/updates/release/latest/" enabled="true" />
