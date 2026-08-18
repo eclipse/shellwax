@@ -37,14 +37,7 @@ public class BashShebangContentDescriber implements ITextContentDescriber {
 			return INVALID;
 		}
 		BufferedReader reader = new BufferedReader(contents);
-		String line = reader.readLine();
-		if (line == null) {
-			return INVALID;
-		}
-		if (line.startsWith("#!") && (line.contains("bash")|| line.contains("bin/sh"))) {
-			return VALID;
-		}
-		return INVALID;
+		return Shebang.isShell(reader.readLine()) ? VALID : INVALID;
 	}
 
 }

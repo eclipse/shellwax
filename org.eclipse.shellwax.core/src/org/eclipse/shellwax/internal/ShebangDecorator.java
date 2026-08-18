@@ -60,9 +60,7 @@ public class ShebangDecorator extends BaseLabelProvider implements ILabelDecorat
 
 	private static boolean hasShellShebang(IFile file) throws CoreException, IOException {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(file.getContents(), StandardCharsets.UTF_8))) {
-			String line = reader.readLine();
-			return line != null && line.startsWith("#!") //$NON-NLS-1$
-					&& (line.contains("bash") || line.contains("bin/sh")); //$NON-NLS-1$ //$NON-NLS-2$
+			return Shebang.isShell(reader.readLine());
 		}
 	}
 
