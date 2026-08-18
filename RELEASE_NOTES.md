@@ -5,9 +5,33 @@ This page describes the noteworthy improvements provided by each release of Ecli
 
 ### Next release...
 
-## 1.3.0
+## 1.4.0
 
 * 📅 Release Date: TBD
+* All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.3.0...1.4.0
+
+### Require Java 25 as runtime JVM ###
+
+* Starting with this ShellWax release it requires Java 25 JVM to be used to run Eclipse for the plugin to work.
+
+### Trace shell script execution ###
+
+* Launch configurations gained an "Enable -x (trace commands)" option that runs the script with `sh -x` and interleaves the trace with the script output in the Console.
+
+### Shell script icon for shebang files ###
+
+* Extension-less files starting with a `#!/bin/sh` or `#!...bash` shebang now show the shell script icon in the Project Explorer and other views.
+
+### Launch configuration names ###
+
+* Newly created launch configurations are named after the script file.
+
+### Bash LS update ###
+* Bash LSP dependency has been updated to version 5.6.0 . See [changelog](https://github.com/bash-lsp/bash-language-server/blob/main/server/CHANGELOG.md#560 ) for details.
+
+## 1.3.0
+
+* 📅 Release Date: Oct 7th, 2025
 * All changes: https://github.com/eclipse-shellwax/shellwax/compare/1.2.3...1.3.0
 
 ### Require Java 21 as runtime JVM ###
